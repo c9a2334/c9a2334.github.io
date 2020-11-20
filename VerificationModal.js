@@ -20,7 +20,7 @@ function prepareModalInner() {
     });
 
     button.addEventListener('click', function () { // for make sure that button can be clicked
-        alert("verification done")
+        alert("verification is done")
     })
 }
 

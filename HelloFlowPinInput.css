@@ -25,6 +25,8 @@
     -webkit-appearance: none;
     outline: none;
     text-align: center;
+    min-width: 1px;
+    min-height: 1px;
 }
 .helloflow-pincode-input:last-child{
     margin-right: 0;

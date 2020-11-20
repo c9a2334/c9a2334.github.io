@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone verification</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ecf2ff;
+            font-family: sans-serif;
+        }
+
+        .modal-like {
+            width: 265px;
+            max-width: 100%;
+            background-color: #fff;
+            padding: 30px 20px 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 12px 0 rgba(201, 201, 201, 0.5);
+            margin: 0 auto;
+        }
+    </style>
+    <link rel="stylesheet" href="ModalInner.css">
+    <link rel="stylesheet" href="PhoneVerification.css">
+
+    <script src="HelloFlowPinInput.js"></script>
+    <script src="VerificationModal.js"></script>
+</head>
+<body>
+
+<div class="modal-like">
+    <div class="modal-inner">
+        <div class="modal-image">
+            <img src="lock.svg">
+        </div>
+        <div class="modal-title">Verify you phone number</div>
+        <div class="modal-description">Please submit the 4-digit code that we have sent to your phone number.</div>
+        <div class="modal-pincode">
+            <input type="text" name="pin">
+        </div>
+        <button class="modal-button" disabled="">Continue</button>
+    </div>
+
+</div>
+
+</body>
+</html>

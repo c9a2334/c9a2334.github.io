@@ -1,0 +1,48 @@
+.helloflow-pincode, .helloflow-pincode * {
+    box-sizing: border-box;
+}
+.helloflow-pincode{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.helloflow-pincode-input{
+    display: block;
+    width: 35px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 35px;
+    flex: 0 0 35px;
+    height: 45px;
+    margin-right: 11px;
+    border-radius: 5px;
+    border: solid 1px #dbdbdb;
+    background-color: #fff;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    text-align: center;
+}
+.helloflow-pincode-input:last-child{
+    margin-right: 0;
+}
+.helloflow-pincode-input.-filled{
+    border-color: #1f77d3;
+    color: #1f77d3;
+}
+.helloflow-pincode.-error .helloflow-pincode-input{
+    border-color: #ea5d6f;
+    color: #ea5d6f;
+}
+.helloflow-pincode.-done .helloflow-pincode-input{
+    border-color: #79c774;
+    color: #79c774;
+    background-color: #fff;
+}
+.helloflow-pincode-input:disabled,
+.helloflow-pincode-input[disabled]{
+    background-color: #fafafa;
+}

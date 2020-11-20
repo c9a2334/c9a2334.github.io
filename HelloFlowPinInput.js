@@ -166,7 +166,13 @@
             this.container.classList.add(CLASSES.error);
             this.removeDisabled();
         },
+        blurSelects(){
+            this.inputs.forEach(function (input) {
+                input.blur();
+            });
+        },
         disable: function () {
+            this.blurSelects();
             this.inputs.forEach(function (input) {
                 input.setAttribute('disabled','');
             });

@@ -27,6 +27,7 @@
     text-align: center;
     min-width: 1px;
     min-height: 1px;
+    opacity: 1;
 }
 .helloflow-pincode-input:last-child{
     margin-right: 0;

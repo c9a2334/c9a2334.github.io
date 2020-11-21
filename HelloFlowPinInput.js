@@ -75,9 +75,9 @@
         this.digits = options.digits || 4;
         this.change = options.change || MIXINS.emptyFunction;
         this.complete = options.complete || MIXINS.emptyFunction;
-        this.initialize = options.change || MIXINS.emptyFunction;
+        this.initialize = options.initialize || MIXINS.emptyFunction;
         this.inputs = [];
-        this.value = "";
+        this.value = options.value || element.value;
 
         this.init();
         this.initialize(this);
@@ -88,6 +88,7 @@
             this.element.style.display = "none";
             this.createInputs();
             this.registerInputEvents();
+            this.setValueFromText(this.value);
         },
         createInputs: function () {
             this.container = MIXINS.createNodesFromTemplate(TEMPLATES.container)[0];
@@ -155,7 +156,9 @@
         setValueFromText: function (text) {
             var digits = text.substring(0, this.digits).split('');
             this.inputs.forEach(function (input, index) {
-                input.value = digits[index];
+                if(digits[index]){
+                    input.value = digits[index];
+                }
             });
             this.updateHiddenInput();
         },

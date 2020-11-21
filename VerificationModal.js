@@ -7,6 +7,9 @@ function documentLoaded() {
 function prepareModalInner() {
     var button = document.querySelector('.modal-button');
     HelloFlowPinInput('[name="pin"]', {
+        initialize: function () {
+            sendSMS();
+        },
         complete: function (value, HFPinInput) {
             mockRequest(value, function (result) {
                 if (result) {
@@ -19,14 +22,23 @@ function prepareModalInner() {
         }
     });
 
-    button.addEventListener('click', function () { // for make sure that button can be clicked
+    button.addEventListener('click', function () {
         alert("verification is done")
     })
 }
 
+var pincode = 0;
+
+/* some test functions */
+function sendSMS() {
+    setTimeout(function () {
+        pincode = (Math.random() + "").substring(2, 6);
+        alert("Your pincode is " + pincode)
+    }, 1000)
+}
 
 function mockRequest(value, callback) {
     setTimeout(function () {
-        callback(value === "1111")
+        callback(value === pincode)
     }, 3000)
 }

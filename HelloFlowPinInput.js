@@ -60,9 +60,9 @@
         },
         preventLetters: function (e) {
             var keyCode = e.keyCode;
-            var check = !(keyCode === 8 || keyCode === 9 || keyCode === 46 || (keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105))
+            var check = !(keyCode === 8 || keyCode === 9 || keyCode === 46 || (keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105));
             if (check) {
-                MIXINS.passiveEvent(e)
+                MIXINS.passiveEvent(e);
             }
             return check;
         }
@@ -154,13 +154,15 @@
             return filled === this.inputs.length;
         },
         setValueFromText: function (text) {
-            var digits = text.substring(0, this.digits).split('');
-            this.inputs.forEach(function (input, index) {
-                if(digits[index]){
-                    input.value = digits[index];
-                }
-            });
-            this.updateHiddenInput();
+            if(text){
+                var digits = text.substring(0, this.digits).split('');
+                this.inputs.forEach(function (input, index) {
+                    if(digits[index]){
+                        input.value = digits[index];
+                    }
+                });
+                this.updateHiddenInput();
+            }
         },
         removeError: function () {
             this.container.classList.remove(CLASSES.error);
@@ -227,7 +229,7 @@
                 return input.element === element
             })[0];
             if (!HFPincodeInput) {
-                HFPincodeInput = new HelloFlowPincodeInput(element, options);
+                HFPincodeInput = new HelloFlowPincodeInput(element, options || {});
                 pincodeInputs.push(HFPincodeInput);
             }
             returnArray.push(HFPincodeInput);

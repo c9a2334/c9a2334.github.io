@@ -11,7 +11,7 @@ Put `HelloFlowPinInput.js` and `HelloFlowPinInput.css` anywhere on your page, li
 
 ## Usage
 
-Put `<input>` anywhere on page, this input will store current code. 
+Put `<input>` anywhere on-page, this input will store the current code. 
 
 ```HTML
 <input type="text" name="pin" id="pincode" class="pininput">
@@ -19,7 +19,7 @@ Put `<input>` anywhere on page, this input will store current code.
 
 Then call `HelloFlowPinInput(selector [, options])` function, which initializes pincode inputs.
 
-***selector*** parameter can be Node element or css selector.
+***selector*** parameter can be Node element, an array of Nodes, NodeList, or CSS selector.
 
 ***options*** is an object with properties:
 
@@ -61,4 +61,4 @@ HelloFlowPinInput('[name="pin"]', {
     });
 ```
 
-You can see example of usage in [Example file](https://github.com/c9a2334/c9a2334.github.io/blob/master/VerificationModal.js)
+You can see an example of usage in [Example file](https://github.com/c9a2334/c9a2334.github.io/blob/master/VerificationModal.js)

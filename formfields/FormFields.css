@@ -3,10 +3,17 @@
 .field--box, .field--box *, .field--box *:before, .field--box *:after {
     box-sizing: border-box;
 }
+.field--box a{
+    color: #1f77d3;
+    text-decoration: none;
+}
 
 .field--box {
     width: 100%;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    color: #888;
+    font-size: 12px;
+    word-break: break-word;
 }
 
 .field--title {

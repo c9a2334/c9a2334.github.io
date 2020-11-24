@@ -25,7 +25,7 @@
 }
 
 .field--option {
-    border: 1px solid #e6e6e6;
+    border: 1px solid #dbdbdb;
     background-color: #fff;
     cursor: pointer;
 }
@@ -176,7 +176,7 @@
     top: 14px;
     left: 14px;
     border-radius: 50%;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #dbdbdb;
     background-color: #fff;
 }
 

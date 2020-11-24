@@ -33,7 +33,7 @@
         },
         reset: function () {
             this.element.classList.remove(CLASSES.done);
-            this.input.value = "";
+            this.input.checked = false;
             this.scrollHandler()();
         },
         scrollHandler: function () {
@@ -45,7 +45,7 @@
                 if (scrollBoxHeight + currentScroll >= contentHeight) {
                     self.element.classList.add(CLASSES.done);
                     if(self.input){
-                        self.input.value = "true";
+                        self.input.checked = true;
                     }
                 }
             }

@@ -1,0 +1,223 @@
+/* #0076ff */
+
+.field--box, .field--box *, .field--box *:before, .field--box *:after {
+    box-sizing: border-box;
+}
+
+.field--box {
+    width: 100%;
+    margin-bottom: 25px
+}
+
+.field--title {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    display: block;
+    color: #323a44;
+}
+
+.field--option {
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Either/or */
+
+.field--either-or {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.field--either-or label {
+    display: block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0;
+    margin: 0;
+    margin-left: -1px;
+}
+
+.field--either-or label:first-child {
+    margin-left: 0;
+}
+
+.field--hidden-input {
+    height: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    width: 1px !important;
+    outline: none !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    min-height: 0px !important;
+    min-width: 0px !important;
+    font-size: 0 !important;
+    position: absolute !important;
+    z-index: -1 !important;
+}
+
+.field--either-or .field--option {
+    text-align: center;
+    padding: 14px 5px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 17px;
+    color: #dbdbdb;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+}
+
+.field--either-or .field--hidden-input:checked + .field--option {
+    border-color: #0076ff;
+    color: #0076ff;
+    z-index: 1;
+}
+
+.field--either-or label:first-child .field--option {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.field--either-or label:last-child .field--option {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Read to pass */
+
+.field--read-to-pass {
+    font-family: Rubik;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+    padding: 15px;
+    padding-right: 7px;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: normal;
+    color: #888888;
+}
+
+.field--read-to-pass.-done {
+    border-color: #0076ff;
+}
+
+.field--scrollBox {
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 15px;
+    max-height: 220px;
+}
+
+.field--scrollBox::-webkit-scrollbar {
+    width: 3px;
+}
+
+.field--scrollBox::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+.field--scrollBox::-webkit-scrollbar-track {
+    background: #e6e6e6;
+    border-radius: 2px;
+}
+
+/* Radio buttons and multiselect */
+
+.field--radio label, .field--multiselect label {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.field--radio label:last-child, .field--multiselect label:last-child {
+    margin-bottom: 0;
+}
+
+.field--radio .field--option, .field--multiselect .field--option {
+    padding: 14px;
+    padding-left: 44px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.field--radio .field--option:before, .field--multiselect .field--option:before {
+    content: "";
+    height: 17px;
+    width: 17px;
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    border-radius: 50%;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+}
+
+.field--multiselect .field--option:before {
+    border-radius: 2.3px;
+}
+
+.field--radio .field--option:after, .field--multiselect .field--option:after {
+    content: "";
+    height: 13px;
+    width: 13px;
+    display: none;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    border-radius: 50%;
+    background-color: #0076ff;
+}
+
+.field--multiselect .field--option:after {
+    top: 14px;
+    left: 14px;
+    height: 17px;
+    width: 17px;
+    border-radius: 0;
+    background: url('https://builder.helloflow.io/public/checkbox.svg') no-repeat center;
+}
+
+.field--radio .field--hidden-input:checked + .field--option:before, .field--multiselect .field--hidden-input:checked + .field--option:before {
+    border-color: #0076ff;
+}
+
+.field--radio .field--hidden-input:checked + .field--option:after, .field--multiselect .field--hidden-input:checked + .field--option:after {
+    display: block;
+}
+
+.field--radio .field--option-title, .field--multiselect .field--option-title {
+    display: block;
+    color: #323a44;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.field--radio .field--option-description, .field--multiselect .field--option-description {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-top: 3px;
+    word-break: break-word;
+}

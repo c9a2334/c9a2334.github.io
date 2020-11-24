@@ -1,0 +1,2326 @@
+body {
+    margin: 30px;
+    font-size: 14px;
+    height: inherit;
+    font-family: Rubik;
+    background-color: #f2f2f2;
+}
+
+.flowView {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardView {
+    max-width: 490px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px 0 #d4d4d4;
+}
+
+.formView {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.headerView {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-right: auto;
+}
+
+.headerIcon {
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerTitleView {
+    margin-left: 15px;
+}
+
+.headerTitle {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.headerSubtitle {
+    font-size: 14px;
+}
+
+.formInputView {
+    width: 100%;
+    margin-bottom: 25px
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    min-height: 45px;
+    border-radius: 4px;
+    font-size: 14px;
+    overflow-x: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    display: inline-block;
+    background-color: #ffffff;
+    border: solid 1px #dbdbdb;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    min-height: 45px;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: vertical;
+    max-height: 100px;
+    min-height: 45px;
+    font-family: Rubik;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    display: inline-block;
+    background-color: #ffffff;
+    border: solid 1px #dbdbdb;
+}
+
+.dropdown__selected {
+    padding-left: 14px;
+    list-style-position: inside;
+    height: 45px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #323a44;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #dbdbdb;
+}
+
+.dropdown__list {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background-color: #ffffff;
+    border: solid 1px #dbdbdb;
+}
+
+input::placeholder {
+    font-size: 14px;
+    color: #dbdbdb;
+}
+
+input:focus {
+    background-color: #ffffff;
+    border: solid 1px #323a44;
+}
+
+.dropdown__selected:focus {
+    background-color: #ffffff;
+    border: solid 1px #323a44;
+}
+
+.radioInputView:focus {
+    background-color: #ffffff;
+    border: solid 1px #323a44;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    display: block;
+    color: #323a44;
+}
+
+.buttonView {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.continueButtonView {
+    margin-left: auto;
+    height: 45px;
+    border: none;
+    width: 40%;
+    background-color: #c4e1ff;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.continueButtonValid {
+    cursor: pointer;
+    background-color: #1f77d3;
+}
+
+.goBackButtonView {
+    cursor: pointer;
+    display: none;
+    width: 40%;
+    height: 45px;
+    border: none;
+    background-color: #ffffff;
+    background-color: transparent;
+    color: #323a44;
+    border-radius: 5px;
+}
+
+.radioInputView {
+    width: 100%;
+    min-height: 45px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    color: #323a44;
+    display: flex;
+    background-color: #ffffff;
+    border: solid 1px #dbdbdb;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.radioView {
+    width: 100%;
+    margin-bottom: 25px
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /*opacity: 0.3;*/
+    /*background-color: #1f77d3;*/
+    background-color: rgba(31, 119, 211, 0.3);
+    justify-content: center;
+    align-items: center;
+}
+
+/*    display: flex; */
+
+#modal_content {
+    width: 265px;
+    height: 334px;
+    border-radius: 10px;
+    box-shadow: 0 1px 12px 0 rgba(201, 201, 201, 0.5);
+    border: solid 1px #e6e6e6;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal_error {
+    display: none;
+    color: red;
+    margin: 20px;
+}
+
+.error {
+    color: red;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.telFormInputView {
+    display: flex;
+}
+
+input[type=checkbox] + span {
+    margin: 14px 14px auto;
+    height: 17px;
+    width: 17px;
+    min-width: 17px;
+    min-height: 17px;
+    display: inline-block;
+    padding: 0;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    background: #fff;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+input[type=checkbox]:checked + span {
+    background: url('https://builder.helloflow.io/public/checkbox.svg') no-repeat center;
+    display: inline-block;
+    padding: 0;
+    border: none;
+}
+
+/* radio buttons*/
+input[type=radio] + span {
+    margin: 14px 14px auto;
+    height: 17px;
+    width: 17px;
+    min-width: 17px;
+    min-height: 17px;
+    display: inline-block;
+    border: 1px solid #DBDBDB;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[type=radio]:checked + span {
+    border: 1px solid #0076ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=radio]:checked + span > span {
+    /*position:absolute;*/
+    background: #0076ff;
+    border-radius: 50%;
+    height: 13px;
+    width: 13px;
+    /*
+     Put top edge and left edge in the center
+    */
+}
+
+.radioInputLabel {
+    word-break: break-word;
+    overflow: hidden;
+    height: 100%;
+    margin-top: 14px;
+    margin-right: 14px;
+    margin-bottom: 14px;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #dbdbdb;
+}
+
+textarea:-moz-placeholder { /* Firefox 18- */
+    color: #dbdbdb;
+}
+
+textarea::-moz-placeholder { /* Firefox 19+ */
+    color: #dbdbdb;
+}
+
+textarea:-ms-input-placeholder {
+    color: #dbdbdb;
+}
+
+textarea::placeholder {
+    color: #dbdbdb;
+}
+
+.endFlowText {
+    /*min-height: 50px;*/
+    font-size: 18px;
+    font-weight: 500;
+    /*margin: 30px;*/
+}
+
+.endFlowSpacing {
+    margin-bottom: 15px;
+}
+
+/* select input */
+
+.dropdown {
+    list-style: none;
+    /*position: relative;*/
+    height: 45px;
+    cursor: pointer;
+    padding: 0;
+    margin: auto;
+}
+
+.dropdown__arrow.expanded {
+    transform: rotate(-180deg);
+}
+
+.dropdown__list {
+    z-index: 1;
+}
+
+/*.dropdown__list {*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    border-bottom-left-radius: 4px;*/
+/*    border-bottom-right-radius: 4px;*/
+/*    box-shadow: 0 3px 2px 0 #a2a4b2;*/
+
+/*    !*background-color: #fff;*!*/
+/*    !*transition: opacity 0.1s cubic-bezier(0, 0, 0.38, 0.9), max-height 0.5s cubic-bezier(0, 0, 0.38, 0.9);*!*/
+/*    max-height: 0;*/
+/*    overflow: hidden;*/
+/*    opacity: 0;*/
+/*}*/
+.dropdown__list-container {
+    position: relative;
+}
+
+.dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown__list-item {
+    /*background-color: #fff;*/
+    color: #323a44;
+    transition: background-color 0.1s linear, color 0.1s linear;
+    list-style-position: inside;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 45px;
+    padding-left: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown__list-item:hover, .dropdown__list-item:focus {
+    background-color: #00c2ff;
+    color: white;
+}
+
+/*.dropdown__selected {*/
+/*    padding-left: 14px;*/
+/*    list-style-position: inside;*/
+/*    white-space: nowrap;*/
+/*    overflow: hidden;*/
+/*    text-overflow: ellipsis;*/
+/*    height: 45px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    border-radius: 4px;*/
+/*    border: 1px solid #DBDBDB;*/
+/*    -webkit-box-sizing: border-box;*/
+/*    -moz-box-sizing: border-box;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.dropdown__selected:focus {*/
+/*    border-radius: 4px;*/
+/*    border: 1px solid #E6E6E6;*/
+/*}*/
+/*.dropdown__selected:hover {*/
+/*    border-radius: 4px;*/
+/*    border: 1px solid #444;*/
+/*}*/
+
+.dropdown__arrow {
+    background-image: url(https://builder.helloflow.io/public/arrow.svg);
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 15px);
+    background-position-y: center;
+    transition: transform 0.2s linear;
+}
+
+.dropdown__short {
+    width: 115px;
+    margin-right: 8px;
+}
+
+/* scroll takes space in the select dunno how to fix.. */
+.open {
+    opacity: 1;
+    overflow: auto;
+    max-height: 15rem;
+}
+
+/* browser only compatibilities */
+/* removes dotted outline on focus for firefox */
+.dropdown__selected:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+*:focus {
+    outline: none;
+}
+
+.hiddenInput {
+    display: none;
+}
+
+/* invalidations */
+:-moz-ui-invalid:not(output) {
+    box-shadow: 0 0 1.5px 1px red;
+}
+
+/*:invalid {*/
+/*    box-shadow: 0 0 1.5px 1px red;*/
+/*}*/
+/*:invalid {*/
+/*    box-shadow: 0 0 1.5px 1px red;*/
+/*}*/
+/*form.submitted input:invalid{*/
+/*    box-shadow: 0 0 1.5px 1px red;*/
+/*}*/
+
+/**
+ SCRIPTS EXTERNALS
+ */
+
+.inputerror {
+    box-shadow: 0 0 1.5px 1px red;
+}
+
+.fileinput_error {
+    display: none;
+    text-align: center;
+    color: red;
+    font-size: 10px;
+    position: absolute;
+    width: 100%;
+}
+
+.fileinput {
+    /*width: 430px;*/
+    width: 100%;
+    height: 64px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: table;
+    border: solid 1px #dbdbdb;
+    position: relative;
+
+    /*display: flex;*/
+}
+
+.fileinput *,
+.fileinput {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+    font-family: 'Rubik', sans-serif;
+}
+
+.fileinput .ease {
+    transition: all 0.2s ease-in-out;
+}
+
+.fileinput:hover,
+.fileinput.highlight {
+    background: #f1f8ff;
+    /*border: solid 1px #323a44;*/
+}
+
+.fileinput.uploading {
+    background: none !important;
+}
+
+.fileinput .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #f1f8ff;
+    z-index: -1;
+}
+
+.fileinput .icon {
+    border-radius: 18px;
+    min-width: 36px;
+    height: 36px;
+    background-color: #c4e1ff;
+    float: left;
+    margin: 14px 10px 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file_icon_type {
+    background: url('https://builder.helloflow.io/public/images/id.svg') no-repeat center;
+    height: 18px;
+    width: 14px;
+    background-size: contain;
+}
+
+/*.fileinput .icon img {*/
+/*    width: 45%;*/
+/*    position: relative;*/
+/*    top: 21%;*/
+/*    left: 27%;*/
+/*}*/
+
+.fileinput .text {
+    float: left;
+    width: auto;
+    /*display: table;*/
+    color: #323a44;
+    margin-top: 14px;
+    margin-bottom: 14px;
+
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: center;
+    /*height: 100%;*/
+    min-width: 200px;
+}
+
+.fileinput .text .title {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.title {
+    max-width: 200px;
+}
+
+.subtitle {
+    max-width: 200px;
+}
+
+.fileinput .text .subtitle {
+    font-weight: 400;
+    margin-top: 1px;
+    font-size: 10px;
+    color: #888888;
+}
+
+.fileinput .browse {
+    font-weight: 400;
+    color: #323a44;
+    position: absolute;
+    font-size: 14px;
+    /*top: 22px;*/
+    right: 18px;
+    width: 134px;
+    text-align: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.fileinput .browse span span {
+    color: #1f77d3;
+    cursor: pointer;
+}
+
+.fileinput .buttons {
+    width: auto;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    /*height: 30px;*/
+}
+
+.fileinput .buttons img {
+    width: 60%;
+    position: relative;
+    top: 21%;
+    left: 21%;
+}
+
+.fileinput .buttons .btn {
+    display: none;
+    float: left;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    cursor: pointer;
+    background: #ededed;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.file_tick_icon {
+    background: url(https://builder.helloflow.io/public/images/tick.svg) no-repeat center;
+    height: 19px;
+    width: 19px;
+    background-size: contain;
+}
+
+.file_cancel_icon {
+    background: url(https://builder.helloflow.io/public/images/x.svg) no-repeat center;
+    height: 19px;
+    width: 19px;
+    background-size: contain;
+}
+
+.fileinput .buttons .tick {
+    background: #1f77d3;
+    /*margin-right: 10px;*/
+    cursor: default;
+}
+
+.fileinput .buttons .cancel {
+    /*background: #1f77d3;*/
+    /*margin-right: 10px;*/
+    /*cursor: default;*/
+    margin-left: 12px;
+}
+
+.fileinput .status {
+    width: calc(100% - 28px);
+    float: left;
+    font-size: 8px;
+    margin: 0 14px;
+    color: #c4c4c4;
+    opacity: 0;
+}
+
+.fileinput .progress {
+    position: relative;
+    margin: 0 14px;
+    margin-top: 0 !important;
+    width: calc(100% - 28px);
+    float: left;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #ededed;
+    opacity: 0;
+}
+
+.fileinput .progress .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #1f77d3;
+}
+
+.fileinput.uploading .status {
+    opacity: 1;
+    margin: 10px 14px 5px 14px;
+}
+
+.fileinput.uploading .progress {
+    opacity: 1;
+    margin: 0px 14px 14px 14px;
+}
+
+.fileinput.uploading .buttons .cancel,
+.fileinput.uploaded .buttons .cancel,
+.fileinput.uploaded .buttons .tick {
+    display: flex;
+}
+
+.fileinput.uploading .browse,
+.fileinput.uploading .buttons .tick,
+.fileinput.uploaded .browse {
+    display: none;
+    background-color: #888888;
+}
+
+/* On screens that are 500px or less */
+@media screen and (max-width: 500px) {
+    .dropdown__short {
+        width: 95px;
+    }
+
+    .dropdown__arrow {
+        background-position-x: calc(100% - 8px);
+    }
+
+    .spar_nord {
+        background: url('https://builder.helloflow.io/public/spar_nord.svg') no-repeat center;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        width: 126px;
+        height: 45px;
+        background-size: contain;
+    }
+
+    .icon_margin {
+        margin-top: 95px;
+    }
+
+    /**
+       externals
+        */
+    .fileinput {
+        width: 100%;
+        /*height: 95px;*/
+    }
+
+    .fileinput .text {
+        width: 100%;
+        margin-left: 14px;
+
+        display: flex;
+        flex-direction: column;
+        /*align-items: center;*/
+
+        min-width: 100px;
+    }
+
+    .fileinput .text .title {
+        font-size: 14px;
+    }
+
+    .fileinput .text .subtitle {
+        /*font-size: 10px;*/
+        max-width: 170px;
+    }
+
+    .fileinput .browse span {
+        display: none;
+    }
+
+    .fileinput .browse {
+        right: 14px;
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .fileinput .upload_icon {
+        border-radius: 18px;
+        width: 36px;
+        height: 36px;
+        background-color: #ededed;
+        /*background: url(https://builder.helloflow.io/public/images/x.svg) no-repeat center;*/
+        /*height: 16px;*/
+        /*width: 16px;*/
+        /*background-size: contain;*/
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .fileinput .upload_icon span {
+        background: url(https://builder.helloflow.io/public/images/upload_icon.svg) no-repeat center;
+        height: 16px;
+        width: 16px;
+        background-size: contain;
+        display: block !important;
+    }
+
+    .fileinput .icon {
+        /*border-radius: 12px;*/
+        /*width: 0;*/
+        /*height: 0;*/
+        /*margin: 0;*/
+        /*margin: 12px calc(50% - 12px) 3px;*/
+        display: none;
+    }
+
+    .fileinput .progress {
+        width: calc(100% - 16px);
+    }
+
+    .fileinput .icon img {
+        top: 16%;
+    }
+
+    .fileinput.uploading .icon,
+    .fileinput.uploaded .icon {
+        margin: 8px;
+    }
+
+    .fileinput.uploading .text,
+    .fileinput.uploaded .text {
+        width: auto;
+        text-align: left;
+        margin-top: 14px;
+        align-items: flex-start;
+    }
+
+    .fileinput .buttons {
+        /*position: absolute;*/
+        /*bottom: 0px;*/
+        /*top: unset;*/
+        /*right: unset;*/
+        /*margin-left: 50%;*/
+        /*float: left;*/
+        /*transform: translate(-50%);*/
+    }
+
+    /*.fileinput .uploaded .buttons .cancel {*/
+    /*    display: none;*/
+    /*}*/
+    .fileinput.uploaded .buttons .cancel {
+        display: none !important;
+    }
+
+    .fileinput .buttons img {
+        top: 19%;
+        left: 19%;
+    }
+
+    .file_icon_type {
+        background: none;
+        height: 12px;
+        width: 9px;
+    }
+
+    .file_tick_icon {
+        height: 19px;
+        width: 19px;
+    }
+
+    .file_cancel_icon {
+        height: 19px;
+        width: 19px;
+    }
+
+    /*.fileinput .buttons .btn {*/
+    /*    width: 24px;*/
+    /*    height: 24px;*/
+    /*    border-radius: 12px;*/
+    /*}*/
+    .fileinput.uploading .status {
+        margin: 0 8px 5px 8px;
+    }
+
+    .fileinput.uploading .progress {
+        margin: 0px 8px 40px 8px;
+    }
+
+    .fileinput.uploaded {
+        height: 76px;
+    }
+
+}
+
+@media screen and (min-width: 500px) {
+    body {
+        margin-top: 130px;
+    }
+
+    .spar_nord {
+        background: url('https://builder.helloflow.io/public/spar_nord.svg') no-repeat center;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        width: 179px;
+        height: 64px;
+        background-size: contain;
+    }
+
+}
+
+/* flags icons */
+.flag {
+    margin-right: 9px;
+    display: inline-block;
+    width: 16px;
+    height: 11px;
+    background: url('https://builder.helloflow.io/public/flags.png') no-repeat
+}
+
+.flag.flag-gu {
+    background-position: -96px -55px
+}
+
+.flag.flag-mn {
+    background-position: -208px -88px
+}
+
+.flag.flag-va {
+    background-position: -48px -154px
+}
+
+.flag.flag-tibet {
+    background-position: -32px -143px
+}
+
+.flag.flag-fo {
+    background-position: -64px -44px
+}
+
+.flag.flag-th {
+    background-position: -16px -143px
+}
+
+.flag.flag-tr {
+    background-position: -144px -143px
+}
+
+.flag.flag-tl {
+    background-position: -80px -143px
+}
+
+.flag.flag-kz {
+    background-position: -144px -77px
+}
+
+.flag.flag-zm {
+    background-position: -16px -165px
+}
+
+.flag.flag-uz {
+    background-position: -32px -154px
+}
+
+.flag.flag-dk {
+    background-position: -64px -33px
+}
+
+.flag.flag-scotland {
+    background-position: -176px -121px
+}
+
+.flag.flag-gi {
+    background-position: -224px -44px
+}
+
+.flag.flag-gy {
+    background-position: -128px -55px
+}
+
+.flag.flag-bj {
+    background-position: -112px -11px
+}
+
+.flag.flag-fr {
+    background-position: -80px -44px
+}
+
+.flag.flag-mo {
+    background-position: -224px -88px
+}
+
+.flag.flag-ir {
+    background-position: -112px -66px
+}
+
+.flag.flag-io {
+    background-position: -80px -66px
+}
+
+.flag.flag-tm {
+    background-position: -96px -143px
+}
+
+.flag.flag-ch {
+    background-position: -96px -22px
+}
+
+.flag.flag-mt {
+    background-position: -32px -99px
+}
+
+.flag.flag-nl {
+    background-position: -240px -99px
+}
+
+.flag.flag-gp {
+    background-position: -16px -55px
+}
+
+.flag.flag-im {
+    background-position: -48px -66px
+}
+
+.flag.flag-tv {
+    background-position: -176px -143px
+}
+
+.flag.flag-mu {
+    background-position: -48px -99px
+}
+
+.flag.flag-pe {
+    background-position: -96px -110px
+}
+
+.flag.flag-vi {
+    background-position: -112px -154px
+}
+
+.flag.flag-hn {
+    background-position: -176px -55px
+}
+
+.flag.flag-ss {
+    background-position: -128px -132px
+}
+
+.flag.flag-ae {
+    background-position: -16px 0
+}
+
+.flag.flag-td {
+    background-position: -240px -132px
+}
+
+.flag.flag-pw {
+    background-position: 0 -121px
+}
+
+.flag.flag-nu {
+    background-position: -32px -110px
+}
+
+.flag.flag-bt {
+    background-position: -208px -11px
+}
+
+.flag.flag-ms {
+    background-position: -16px -99px
+}
+
+.flag.flag-cv {
+    background-position: -240px -22px
+}
+
+.flag.flag-es {
+    background-position: -224px -33px
+}
+
+.flag.flag-mh {
+    background-position: -144px -88px
+}
+
+.flag.flag-la {
+    background-position: -160px -77px
+}
+
+.flag.flag-vn {
+    background-position: -128px -154px
+}
+
+.flag.flag-py {
+    background-position: -16px -121px
+}
+
+.flag.flag-br {
+    background-position: -176px -11px
+}
+
+.flag.flag-ye {
+    background-position: -224px -154px
+}
+
+.flag.flag-ie {
+    background-position: 0 -66px
+}
+
+.flag.flag-gh {
+    background-position: -208px -44px
+}
+
+.flag.flag-cg {
+    background-position: -80px -22px
+}
+
+.flag.flag-cu {
+    background-position: -224px -22px
+}
+
+.flag.flag-hu {
+    background-position: -224px -55px
+}
+
+.flag.flag-sg {
+    background-position: -224px -121px
+}
+
+.flag.flag-at {
+    background-position: -176px 0
+}
+
+.flag.flag-lk {
+    background-position: -224px -77px
+}
+
+.flag.flag-vu {
+    background-position: -144px -154px
+}
+
+.flag.flag-bo {
+    background-position: -160px -11px
+}
+
+.flag.flag-jo {
+    background-position: -208px -66px
+}
+
+.flag.flag-er {
+    background-position: -208px -33px
+}
+
+.flag.flag-za {
+    background-position: -256px -154px
+}
+
+.flag.flag-rs {
+    background-position: -80px -121px
+}
+
+.flag.flag-nr {
+    background-position: -16px -110px
+}
+
+.flag.flag-ls {
+    background-position: -256px -77px
+}
+
+.flag.flag-jm {
+    background-position: -192px -66px
+}
+
+.flag.flag-tz {
+    background-position: -208px -143px
+}
+
+.flag.flag-ki {
+    background-position: -16px -77px
+}
+
+.flag.flag-sj {
+    background-position: 0 -132px
+}
+
+.flag.flag-cz {
+    background-position: -16px -33px
+}
+
+.flag.flag-pg {
+    background-position: -128px -110px
+}
+
+.flag.flag-lv {
+    background-position: -32px -88px
+}
+
+.flag.flag-do {
+    background-position: -96px -33px
+}
+
+.flag.flag-lu {
+    background-position: -16px -88px
+}
+
+.flag.flag-no {
+    background-position: -256px -99px
+}
+
+.flag.flag-kw {
+    background-position: -112px -77px
+}
+
+.flag.flag-mx {
+    background-position: -96px -99px
+}
+
+.flag.flag-yt {
+    background-position: -240px -154px
+}
+
+.flag.flag-ly {
+    background-position: -48px -88px
+}
+
+.flag.flag-cy {
+    background-position: 0 -33px
+}
+
+.flag.flag-ph {
+    background-position: -144px -110px
+}
+
+.flag.flag-my {
+    background-position: -112px -99px
+}
+
+.flag.flag-sm {
+    background-position: -48px -132px
+}
+
+.flag.flag-et {
+    background-position: -240px -33px
+}
+
+.flag.flag-ru {
+    background-position: -96px -121px
+}
+
+.flag.flag-tj {
+    background-position: -48px -143px
+}
+
+.flag.flag-ai {
+    background-position: -64px 0
+}
+
+.flag.flag-pl {
+    background-position: -176px -110px
+}
+
+.flag.flag-kp {
+    background-position: -64px -77px
+}
+
+.flag.flag-uy {
+    background-position: -16px -154px
+}
+
+.flag.flag-gb {
+    background-position: -112px -44px
+}
+
+.flag.flag-gs {
+    background-position: -64px -55px
+}
+
+.flag.flag-kurdistan {
+    background-position: -96px -77px
+}
+
+.flag.flag-rw {
+    background-position: -112px -121px
+}
+
+.flag.flag-ec {
+    background-position: -128px -33px
+}
+
+.flag.flag-mm {
+    background-position: -192px -88px
+}
+
+.flag.flag-pa {
+    background-position: -80px -110px
+}
+
+.flag.flag-wales {
+    background-position: -160px -154px
+}
+
+.flag.flag-kg {
+    background-position: -256px -66px
+}
+
+.flag.flag-ve {
+    background-position: -80px -154px
+}
+
+.flag.flag-tk {
+    background-position: -64px -143px
+}
+
+.flag.flag-ca {
+    background-position: -16px -22px
+}
+
+.flag.flag-is {
+    background-position: -128px -66px
+}
+
+.flag.flag-ke {
+    background-position: -240px -66px
+}
+
+.flag.flag-ro {
+    background-position: -64px -121px
+}
+
+.flag.flag-gq {
+    background-position: -32px -55px
+}
+
+.flag.flag-pt {
+    background-position: -256px -110px
+}
+
+.flag.flag-tf {
+    background-position: -256px -132px
+}
+
+.flag.flag-ad {
+    background-position: 0 0
+}
+
+.flag.flag-sk {
+    background-position: -16px -132px
+}
+
+.flag.flag-pm {
+    background-position: -192px -110px
+}
+
+.flag.flag-om {
+    background-position: -64px -110px
+}
+
+.flag.flag-an {
+    background-position: -112px 0
+}
+
+.flag.flag-ws {
+    background-position: -192px -154px
+}
+
+.flag.flag-sh {
+    background-position: -240px -121px
+}
+
+.flag.flag-mp {
+    background-position: -240px -88px
+}
+
+.flag.flag-gt {
+    background-position: -80px -55px
+}
+
+.flag.flag-cf {
+    background-position: -64px -22px
+}
+
+.flag.flag-zanzibar {
+    background-position: 0 -165px
+}
+
+.flag.flag-mw {
+    background-position: -80px -99px
+}
+
+.flag.flag-catalonia {
+    background-position: -32px -22px
+}
+
+.flag.flag-ug {
+    background-position: -240px -143px
+}
+
+.flag.flag-je {
+    background-position: -176px -66px
+}
+
+.flag.flag-km {
+    background-position: -32px -77px
+}
+
+.flag.flag-in {
+    background-position: -64px -66px
+}
+
+.flag.flag-bf {
+    background-position: -48px -11px
+}
+
+.flag.flag-mc {
+    background-position: -80px -88px
+}
+
+.flag.flag-sy {
+    background-position: -192px -132px
+}
+
+.flag.flag-sn {
+    background-position: -64px -132px
+}
+
+.flag.flag-kr {
+    background-position: -80px -77px
+}
+
+.flag.flag-eu {
+    background-position: -256px -33px
+}
+
+.flag.flag-bn {
+    background-position: -144px -11px
+}
+
+.flag.flag-st {
+    background-position: -144px -132px
+}
+
+.flag.flag-england {
+    background-position: -192px -33px
+}
+
+.flag.flag-lc {
+    background-position: -192px -77px
+}
+
+.flag.flag-dm {
+    background-position: -80px -33px
+}
+
+.flag.flag-be {
+    background-position: -32px -11px
+}
+
+.flag.flag-ni {
+    background-position: -224px -99px
+}
+
+.flag.flag-ua {
+    background-position: -224px -143px
+}
+
+.flag.flag-mz {
+    background-position: -128px -99px
+}
+
+.flag.flag-pf {
+    background-position: -112px -110px
+}
+
+.flag.flag-tn {
+    background-position: -112px -143px
+}
+
+.flag.flag-ee {
+    background-position: -144px -33px
+}
+
+.flag.flag-xk {
+    background-position: -208px -154px
+}
+
+.flag.flag-sx {
+    background-position: -176px -132px
+}
+
+.flag.flag-sd {
+    background-position: -192px -121px
+}
+
+.flag.flag-gd {
+    background-position: -128px -44px
+}
+
+.flag.flag-ci {
+    background-position: -112px -22px
+}
+
+.flag.flag-sz {
+    background-position: -208px -132px
+}
+
+.flag.flag-cl {
+    background-position: -144px -22px
+}
+
+.flag.flag-fi {
+    background-position: 0 -44px
+}
+
+.flag.flag-ga {
+    background-position: -96px -44px
+}
+
+.flag.flag-jp {
+    background-position: -224px -66px
+}
+
+.flag.flag-de {
+    background-position: -32px -33px
+}
+
+.flag.flag-np {
+    background-position: 0 -110px
+}
+
+.flag.flag-re {
+    background-position: -48px -121px
+}
+
+.flag.flag-bg {
+    background-position: -64px -11px
+}
+
+.flag.flag-sc {
+    background-position: -160px -121px
+}
+
+.flag.flag-ng {
+    background-position: -208px -99px
+}
+
+.flag.flag-qa {
+    background-position: -32px -121px
+}
+
+.flag.flag-mk {
+    background-position: -160px -88px
+}
+
+.flag.flag-aw {
+    background-position: -208px 0
+}
+
+.flag.flag-kn {
+    background-position: -48px -77px
+}
+
+.flag.flag-al {
+    background-position: -80px 0
+}
+
+.flag.flag-bw {
+    background-position: -240px -11px
+}
+
+.flag.flag-um {
+    background-position: -256px -143px
+}
+
+.flag.flag-ky {
+    background-position: -128px -77px
+}
+
+.flag.flag-tt {
+    background-position: -160px -143px
+}
+
+.flag.flag-so {
+    background-position: -80px -132px
+}
+
+.flag.flag-lt {
+    background-position: 0 -88px
+}
+
+.flag.flag-by {
+    background-position: -256px -11px
+}
+
+.flag.flag-bb {
+    background-position: 0 -11px
+}
+
+.flag.flag-us {
+    background-position: 0 -154px
+}
+
+.flag.flag-md {
+    background-position: -96px -88px
+}
+
+.flag.flag-ag {
+    background-position: -48px 0
+}
+
+.flag.flag-hm {
+    background-position: -160px -55px
+}
+
+.flag.flag-as {
+    background-position: -160px 0
+}
+
+.flag.flag-eg {
+    background-position: -160px -33px
+}
+
+.flag.flag-sv {
+    background-position: -160px -132px
+}
+
+.flag.flag-sl {
+    background-position: -32px -132px
+}
+
+.flag.flag-fk {
+    background-position: -32px -44px
+}
+
+.flag.flag-am {
+    background-position: -96px 0
+}
+
+.flag.flag-ck {
+    background-position: -128px -22px
+}
+
+.flag.flag-tw {
+    background-position: -192px -143px
+}
+
+.flag.flag-kh {
+    background-position: 0 -77px
+}
+
+.flag.flag-to {
+    background-position: -128px -143px
+}
+
+.flag.flag-se {
+    background-position: -208px -121px
+}
+
+.flag.flag-cd {
+    background-position: -48px -22px
+}
+
+.flag.flag-pn {
+    background-position: -208px -110px
+}
+
+.flag.flag-gr {
+    background-position: -48px -55px
+}
+
+.flag.flag-id {
+    background-position: -256px -55px
+}
+
+.flag.flag-vc {
+    background-position: -64px -154px
+}
+
+.flag.flag-somaliland {
+    background-position: -96px -132px
+}
+
+.flag.flag-bi {
+    background-position: -96px -11px
+}
+
+.flag.flag-pk {
+    background-position: -160px -110px
+}
+
+.flag.flag-pr {
+    background-position: -224px -110px
+}
+
+.flag.flag-bd {
+    background-position: -16px -11px
+}
+
+.flag.flag-co {
+    background-position: -192px -22px
+}
+
+.flag.flag-fm {
+    background-position: -48px -44px
+}
+
+.flag.flag-bm {
+    background-position: -128px -11px
+}
+
+.flag.flag-ar {
+    background-position: -144px 0
+}
+
+.flag.flag-bv {
+    background-position: -224px -11px
+}
+
+.flag.flag-sb {
+    background-position: -144px -121px
+}
+
+.flag.flag-mq {
+    background-position: -256px -88px
+}
+
+.flag.flag-eh {
+    background-position: -176px -33px
+}
+
+.flag.flag-bh {
+    background-position: -80px -11px
+}
+
+.flag.flag-it {
+    background-position: -144px -66px
+}
+
+.flag.flag-hr {
+    background-position: -192px -55px
+}
+
+.flag.flag-sa {
+    background-position: -128px -121px
+}
+
+.flag.flag-mv {
+    background-position: -64px -99px
+}
+
+.flag.flag-mg {
+    background-position: -128px -88px
+}
+
+.flag.flag-dz {
+    background-position: -112px -33px
+}
+
+.flag.flag-gg {
+    background-position: -192px -44px
+}
+
+.flag.flag-gm {
+    background-position: -256px -44px
+}
+
+.flag.flag-af {
+    background-position: -32px 0
+}
+
+.flag.flag-li {
+    background-position: -208px -77px
+}
+
+.flag.flag-sr {
+    background-position: -112px -132px
+}
+
+.flag.flag-vg {
+    background-position: -96px -154px
+}
+
+.flag.flag-cr {
+    background-position: -208px -22px
+}
+
+.flag.flag-tc {
+    background-position: -224px -132px
+}
+
+.flag.flag-ao {
+    background-position: -128px 0
+}
+
+.flag.flag-ma {
+    background-position: -64px -88px
+}
+
+.flag.flag-mr {
+    background-position: 0 -99px
+}
+
+.flag.flag-gn {
+    background-position: 0 -55px
+}
+
+.flag.flag-ne {
+    background-position: -176px -99px
+}
+
+.flag.flag-nf {
+    background-position: -192px -99px
+}
+
+.flag.flag-wf {
+    background-position: -176px -154px
+}
+
+.flag.flag-hk {
+    background-position: -144px -55px
+}
+
+.flag.flag-gf {
+    background-position: -160px -44px
+}
+
+.flag.flag-ps {
+    background-position: -240px -110px
+}
+
+.flag.flag-ic {
+    background-position: -240px -55px
+}
+
+.flag.flag-cw {
+    background-position: -256px -22px
+}
+
+.flag.flag-ml {
+    background-position: -176px -88px
+}
+
+.flag.flag-ax {
+    background-position: -224px 0
+}
+
+.flag.flag-gl {
+    background-position: -240px -44px
+}
+
+.flag.flag-dj {
+    background-position: -48px -33px
+}
+
+.flag.flag-cn {
+    background-position: -176px -22px
+}
+
+.flag.flag-ht {
+    background-position: -208px -55px
+}
+
+.flag.flag-lr {
+    background-position: -240px -77px
+}
+
+.flag.flag-tg {
+    background-position: 0 -143px
+}
+
+.flag.flag-ba {
+    background-position: -256px 0
+}
+
+.flag.flag-ge {
+    background-position: -144px -44px
+}
+
+.flag.flag-bz {
+    background-position: 0 -22px
+}
+
+.flag.flag-au {
+    background-position: -192px 0
+}
+
+.flag.flag-iq {
+    background-position: -96px -66px
+}
+
+.flag.flag-cm {
+    background-position: -160px -22px
+}
+
+.flag.flag-gw {
+    background-position: -112px -55px
+}
+
+.flag.flag-az {
+    background-position: -240px 0
+}
+
+.flag.flag-na {
+    background-position: -144px -99px
+}
+
+.flag.flag-fj {
+    background-position: -16px -44px
+}
+
+.flag.flag-zw {
+    background-position: -32px -165px
+}
+
+.flag.flag-bs {
+    background-position: -192px -11px
+}
+
+.flag.flag-il {
+    background-position: -16px -66px
+}
+
+.flag.flag-nz {
+    background-position: -48px -110px
+}
+
+.flag.flag-me {
+    background-position: -112px -88px
+}
+
+.flag.flag-si {
+    background-position: -256px -121px
+}
+
+.flag.flag-nc {
+    background-position: -160px -99px
+}
+
+.flag.flag-lb {
+    background-position: -176px -77px
+}
+
+.HFDatepicker {
+    position: relative;
+}
+
+.HFDatepicker * {
+    box-sizing: border-box;
+}
+
+.HFDatepicker_body {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    font-size: 14px;
+    color: #4a4a4a;
+    width: 250px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .3s ease, visibility .3s ease, left 0s .3s, -webkit-transform .3s ease;
+    transition: opacity .3s ease, visibility .3s ease, transform .3s ease, left 0s .3s;
+    transition: opacity .3s ease, visibility .3s ease, transform .3s ease, left 0s .3s, -webkit-transform .3s ease;
+    z-index: 100;
+    left: 0;
+    top: calc(100% + 10px);
+    visibility: hidden;
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px)
+}
+
+.HFDatepicker_body.active {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+    transition: opacity .3s ease, left 0s 0s, -webkit-transform .3s ease;
+    transition: opacity .3s ease, transform .3s ease, left 0s 0s;
+    transition: opacity .3s ease, transform .3s ease, left 0s 0s, -webkit-transform .3s ease;
+}
+
+.HFDatepicker_input, .HFDatepicker_mobile-label {
+    width: 100%;
+    /*padding: 17px 15px;*/
+    text-transform: uppercase;
+    /*border: 1px solid #dcdcdc;*/
+    /*border-radius: 5px;*/
+    /*line-height: 22px;*/
+    /*font-size: 16px;*/
+    outline: none;
+    display: block;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.HFDatepicker_mobile-label {
+    color: #757575;
+}
+
+.HFDatepicker_mobile-label.-active {
+    color: #000;
+}
+
+.HFDatepicker_pointer {
+    position: absolute;
+    background: #fff;
+    border-top: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    width: 10px;
+    height: 10px;
+    z-index: -1;
+    left: 10px;
+    bottom: calc(100% - 4px);
+    -webkit-transform: rotate(315deg);
+    transform: rotate(315deg);
+}
+
+.HFDatepicker_controls {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-bottom: 1px solid #efefef;
+    min-height: 32px;
+    padding: 4px;
+}
+
+.HFDatepicker_controls-button, .HFDatepicker_controls-label {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.HFDatepicker_controls-label {
+    padding: 0 10px;
+}
+
+.HFDatepicker_controls-button:hover, .HFDatepicker_controls-label:hover {
+    background-color: #f0f0f0;
+}
+
+.HFDatepicker_controls-button {
+    width: 32px;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.HFDatepicker_controls-button svg {
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+}
+
+.HFDatepicker_controls-button path {
+    fill: none;
+    stroke: #9c9c9c;
+    stroke-width: 2px;
+}
+
+.HFDatepicker_content {
+    padding: 4px;
+    position: relative;
+}
+
+.HFDatepicker_quick-search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.HFDatepicker_quick-controls .HFDatepicker_controls-button {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.HFDatepicker_quick-search-content {
+    position: relative;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.HFDatepicker_quick-controls {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.HFDatepicker_quick-items-wrapper {
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    top: 35px;
+    bottom: 35px;
+    left: 0;
+    width: 100%;
+}
+
+.HFDatepicker_quick-items {
+    position: absolute;
+    top: -100px;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+}
+
+.HFDatepicker_quick-item {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    line-height: 20px;
+    height: 20px;
+    transition: height .1s linear;
+}
+
+.HFDatepicker_quick-item.-destroy, .HFDatepicker_quick-item.-build {
+    height: 0;
+}
+
+.HFDatepicker_quick-item-label {
+    display: inline-block;
+    padding: 0 4px;
+    border-radius: 4px;
+    line-height: 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.HFDatepicker_quick-item-label:hover {
+    background-color: #f0f0f0;
+}
+
+.HFDatepicker_quick-item.-selected .HFDatepicker_quick-item-label {
+    color: #fff;
+    background: #12a7ef;
+}
+
+.HFDatepicker_quick-controls .HFDatepicker_controls-button {
+    position: absolute;
+}
+
+.HFDatepicker_controls-button.-up {
+    top: 0;
+}
+
+.HFDatepicker_controls-button.-down {
+    bottom: 0;
+}
+
+.HFDatepicker_body.-search .HFDatepicker_controls .HFDatepicker_controls-button {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.HFDatepicker_body.-search .HFDatepicker_content {
+    height: 250px;
+}
+
+.HFDatepicker_body.-search .HFDatepicker_quick-search {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.HFDatepicker_day-labels {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 8px 0 3px
+}
+
+.HFDatepicker_day-label {
+    color: #d4d4d4;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+.HFDatepicker_days {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.HFDatepicker_day {
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 32px;
+    z-index: 1;
+    width: 14.28571%;
+}
+
+.HFDatepicker_day:hover {
+    background-color: #f0f0f0;
+}
+
+.HFDatepicker_day.-selected {
+    color: #fff;
+    background: #12a7ef;
+}
+
+.HFDatepicker_day.-outer {
+    opacity: 0.5;
+}
+
+.HFDatepicker_day.-muted {
+    background-color: #d4d4d4;
+    border-radius: 0;
+    pointer-events: none;
+}
+
+.hfdatepickerhidden {
+    height: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    outline: none !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+}
+
+div.-weekend {
+    color: #da4444;
+}
+

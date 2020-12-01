@@ -7,10 +7,6 @@ var self=this||{};try{!function(t,e){if(new t("q=%2B").get("q")!==e||new t({q:e}
     function fillInput(element, value) {
         var type = element.type;
         switch (type) {
-            case "text":
-            case "number":
-                element.setAttribute("value", value);
-                break;
             case "radio":
             case "checkbox":
                 if (element.value === value) {
@@ -25,6 +21,10 @@ var self=this||{};try{!function(t,e){if(new t("q=%2B").get("q")!==e||new t({q:e}
                     var newValue = date.toISOString().substring(0, 10);
                     element.setAttribute("value", newValue);
                 }
+                break;
+            default:
+                element.setAttribute("value", value);
+                break;
         }
     }
 

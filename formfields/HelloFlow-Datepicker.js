@@ -156,7 +156,8 @@
         getDateFromText: function (text) {
             var date = null;
             if (text) {
-                var dateFromText = new Date(text);
+                var parsedText = +text ? +text : text;
+                var dateFromText = new Date(parsedText);
                 if (!!dateFromText.valueOf()) {
                     date = dateFromText;
                     date.setHours(0);

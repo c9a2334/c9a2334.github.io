@@ -395,6 +395,7 @@
         if (currentDateValue) {
             currentDateValue.setHours(12);
             element.setAttribute("value", currentDateValue.toISOString().substring(0, 10));
+            currentDateValue.setHours(0);
         }
         var HFDatepicker = {
             id: plugin + mixins.idsCounter++,

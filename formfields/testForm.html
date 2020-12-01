@@ -11,9 +11,12 @@
     <script src="FormFiller.js"></script>
     <script src="HelloFlow-Datepicker.js"></script>
     <script>
-        /*initialize datePicker */
+        /*initialize datePicker for old browsers */
         document.addEventListener("DOMContentLoaded", function () {
-            HFDatepicker('[type="date"]');
+            var test = document.querySelector('[type="date"]');
+            if(test.type !== "date"){
+                HFDatepicker('[type="date"]');
+            }
         });
     </script>
 </head>

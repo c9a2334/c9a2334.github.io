@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "main.d9bf3f69.chunk.css",
+    "main.js": "main.513c576d.chunk.js",
+    "main.js.map": "main.513c576d.chunk.js.map",
+    "runtime-main.js": "runtime-main.7d6d919a.js",
+    "runtime-main.js.map": "runtime-main.7d6d919a.js.map",
+    "static/js/2.738420aa.chunk.js": "2.738420aa.chunk.js",
+    "static/js/2.738420aa.chunk.js.map": "2.738420aa.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.d9bf3f69.chunk.css.map": "main.d9bf3f69.chunk.css.map",
+    "static/js/2.738420aa.chunk.js.LICENSE.txt": "2.738420aa.chunk.js.LICENSE.txt",
+    "static/media/Dropout.css": "arrow.646c86e0.svg"
+  },
+  "entrypoints": [
+    "runtime-main.7d6d919a.js",
+    "2.738420aa.chunk.js",
+    "main.d9bf3f69.chunk.css",
+    "main.513c576d.chunk.js"
+  ]
+}

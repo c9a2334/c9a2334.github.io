@@ -1,7 +1,6 @@
 (function () {
     var plugin = "HFDatepicker";
     var HFDatepickers = [];
-    var isMobile = false;
     var CONST = {
         currentDate: new Date(),
         datepickerClass: "HFDatepicker",
@@ -45,6 +44,7 @@
 
     var wheelOpt = supportsPassive ? {passive: false} : false;
     var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
     var templates = {
         datepickerBaseHTML: '' +
         '<div class="HFDatepicker_input-box">' +
@@ -88,6 +88,8 @@
         changed: function (datepicker) {
         },
         initialized: function (datepicker) {
+        },
+        closeDatepicker: function (datepicker) {
         }
     };
     var mixins = {
@@ -149,6 +151,9 @@
         },
         checkInput: function (element) {
             return element.tagName.toLowerCase() === "input" && (element.type === "date" || element.type === "text")
+        },
+        checkDatePicker: function (element) {
+            return element.tagName.toLowerCase() === "input" && element.type === "date"
         },
         checkFunction: function (fun) {
             return fun && typeof fun === "function"
@@ -315,7 +320,7 @@
         buildItem: function (array, index) {
             setTimeout(function () {
                 array[index].classList.remove(CONST.buildItemClass);
-            }, index * 100);
+            }, (index+1) * 100);
         },
         createTemplate: function (template) {
             var div = document.createElement("div");
@@ -385,6 +390,9 @@
         var currentDateYear = currentDateValue ? currentDateValue.getFullYear() : CONST.currentDate.getFullYear();
         var currentDateMonth = currentDateValue ? currentDateValue.getMonth() : CONST.currentDate.getMonth();
         var currentDate = new Date(currentDateYear, currentDateMonth, 1);
+        var isChrome = navigator.userAgent.includes("Chrome") && navigator.vendor.includes("Google Inc");
+        var defaultDatePicker = mixins.checkDatePicker(element) && !isChrome;
+        var isMobile = mixins.checkDatePicker(element) && mixins.mobileCheck();
         if (currentDateValue) {
             currentDateValue.setHours(12);
             element.setAttribute("value", currentDateValue.toISOString().substring(0, 10));
@@ -399,8 +407,16 @@
             required: elementData.required,
             changed: defaultSettings.changed,
             initialized: defaultSettings.initialized,
+            defaultDatePicker : false,
+            closeDatepicker: defaultSettings.closeDatepicker
         };
-        if (isMobile) {
+        if (settings) {
+            mixins.checkFunction(settings.changed) && (HFDatepicker.changed = settings.changed);
+            mixins.checkFunction(settings.initialized) && (HFDatepicker.initialized = settings.initialized);
+            HFDatepicker.defaultDatePicker = settings.defaultDatePicker;
+        }
+        defaultDatePicker = HFDatepicker.defaultDatePicker && defaultDatePicker;
+        if (isMobile || defaultDatePicker) {
             buildMobileHFDatepicker(HFDatepicker);
         } else {
             HFDatepicker.closeDatepicker = function () {
@@ -409,10 +425,6 @@
                 document.removeEventListener("click", HFDatepicker.closeDatepicker);
             };
             buildHFDatepicker(HFDatepicker);
-        }
-        if (settings) {
-            mixins.checkFunction(settings.changed) && (HFDatepicker.changed = settings.changed);
-            mixins.checkFunction(settings.initialized) && (HFDatepicker.initialized = settings.initialized);
         }
         HFDatepicker.initialized(HFDatepicker);
         HFDatepickers.push(HFDatepicker);
@@ -578,16 +590,31 @@
         HFDatepicker.placeholder.addEventListener("input", mixins.onPlaceholderInput);
         HFDatepicker.placeholder.addEventListener("focus", mixins.onPlaceholderFocus);
         HFDatepicker.placeholder.addEventListener("blur", mixins.onPlaceholderBlur);
-
+        var scrolled = false;
+        var scrollDelay = 50;
         HFDatepicker.monthSearchItems.addEventListener(wheelEvent, function (e) {
             e.preventDefault();
+            if(scrolled){
+                return false;
+            }
             var delta = e.deltaY;
-            scrollQuickSearch(HFDatepicker, true, delta > 0 ? 3 : -3)
+            scrollQuickSearch(HFDatepicker, true, delta > 0 ? 3 : -3);
+            setTimeout(function () {
+                scrolled = false;
+            },scrollDelay);
+            scrolled = true;
         }, wheelOpt);
         HFDatepicker.yearSearchItems.addEventListener(wheelEvent, function (e) {
             e.preventDefault();
+            if(scrolled){
+                return false;
+            }
             var delta = e.deltaY;
-            scrollQuickSearch(HFDatepicker, false, delta > 0 ? 3 : -3)
+            scrollQuickSearch(HFDatepicker, false, delta > 0 ? 3 : -3);
+            setTimeout(function () {
+                scrolled = false;
+            },scrollDelay);
+            scrolled = true;
         }, wheelOpt);
 
         HFDatepicker.wrapper.addEventListener("click", function (e) {
@@ -664,8 +691,8 @@
             var date = new Date(currentYear, currentMonth, i);
 
             var settings = {
-                date: date.getDate(),
-                month: date.getMonth() + 1,
+                date: mixins.prepareDate(date.getDate()),
+                month: mixins.prepareDate(date.getMonth() + 1),
                 year: date.getFullYear(),
                 classes: mixins.prepareDayClasses(HFDatepicker, date) || " "
             };
@@ -718,7 +745,7 @@
             };
         }
         mixins.prepareTemplates();
-        isMobile = mixins.mobileCheck();
+
         document.addEventListener("DOMContentLoaded", function () {
 
         });

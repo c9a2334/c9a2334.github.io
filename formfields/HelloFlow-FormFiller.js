@@ -4,30 +4,6 @@ var self=this||{};try{!function(t,e){if(new t("q=%2B").get("q")!==e||new t({q:e}
 
 (function () {
 
-    function onLoad() {
-        var searchParams = new URLSearchParams(window.location.search);
-
-        searchParams.forEach(function (value, key) {
-            var elements = document.querySelectorAll('[name="' + key + '"]');
-            elements.forEach(function (element) {
-                fillControl(element, value)
-            });
-        });
-    }
-
-    function fillControl(element, value) {
-        var nodeName = element.nodeName.toLowerCase();
-        switch (nodeName) {
-            case "input":
-                fillInput(element, value);
-                break;
-            case "select":
-                fillSelect(element, value);
-                break;
-        }
-        element.change && element.change();
-    }
-
     function fillInput(element, value) {
         var type = element.type;
         switch (type) {
@@ -57,6 +33,30 @@ var self=this||{};try{!function(t,e){if(new t("q=%2B").get("q")!==e||new t({q:e}
         if (!element.value) {
             element.value = prevValue;
         }
+    }
+
+    function fillControl(element, value) {
+        var nodeName = element.nodeName.toLowerCase();
+        switch (nodeName) {
+            case "input":
+                fillInput(element, value);
+                break;
+            case "select":
+                fillSelect(element, value);
+                break;
+        }
+        element.change && element.change();
+    }
+
+    function onLoad() {
+        var searchParams = new URLSearchParams(window.location.search);
+
+        searchParams.forEach(function (value, key) {
+            var elements = document.querySelectorAll('[name="' + key + '"]');
+            elements.forEach(function (element) {
+                fillControl(element, value)
+            });
+        });
     }
 
     function initialization() {

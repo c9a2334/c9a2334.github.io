@@ -82,5 +82,5 @@
     }
 
     initialization();
-    window.readToPass = onLoad;
+    window.HFReadToPass = onLoad;
 })();

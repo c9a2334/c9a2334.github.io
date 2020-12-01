@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="existedCss.css">
     <link rel="stylesheet" href="FormFields.css">
     <script src="ReadToPass.js"></script>
+    <script src="FormFiller.js"></script>
+    <script src="HelloFlow-Datepicker.js"></script>
+    <script>
+        /*initialize datePicker */
+        document.addEventListener("DOMContentLoaded", function () {
+            HFDatepicker('[type="date"]');
+        });
+    </script>
 </head>
 <body>
 
@@ -102,27 +110,44 @@
                 <div class="field--title">Multi Select Fields</div>
                 <div class="field--multiselect">
                     <label>
-                        <input class="field--hidden-input" type="checkbox" name="Multi Select Fields" value="Option 1">
+                        <input class="field--hidden-input" type="checkbox" name="Multi" value="Option 1">
                         <div class="field--option">
                             <span class="field--option-title">Option 1</span>
                             <span class="field--option-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit libero interdum mattis mollis.</span>
                         </div>
                     </label>
                     <label>
-                        <input class="field--hidden-input" type="checkbox" name="Multi Select Fields" value="Option 2">
+                        <input class="field--hidden-input" type="checkbox" name="Multi" value="Option 2">
                         <div class="field--option">
                             <span class="field--option-title">Option 2</span>
                             <span class="field--option-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit interdum mattis mollis. Lorem dolor sit, consectetur elit. Libero interdum mattis mollis.</span>
                         </div>
                     </label>
                     <label>
-                        <input class="field--hidden-input" type="checkbox" name="Multi Select Fields" value="Option 3">
+                        <input class="field--hidden-input" type="checkbox" name="Multi" value="Option 3">
                         <div class="field--option">
                             <span class="field--option-title">Option 3</span>
                             <span class="field--option-description">Lorem ipsum dolor sit. Mattis mollis.</span>
                         </div>
                     </label>
                 </div>
+            </div>
+            <div class="field--box">
+                <div class="field--title">Input</div>
+                <input type="text" name="Basic Input 1">
+            </div>
+            <div class="field--box">
+                <div class="field--title">Select</div>
+                <select name="Select">
+                    <option value="first">First</option>
+                    <option value="second">Second</option>
+                    <option value="third">Third</option>
+                    <option value="Fourth">Fourth</option>
+                </select>
+            </div>
+            <div class="field--box">
+                <div class="field--title">Date</div>
+                <input type="date" name="Date">
             </div>
             <div class="buttonView">
                 <button type="submit" class="continueButtonView continueButtonValid">Fortsæt</button>

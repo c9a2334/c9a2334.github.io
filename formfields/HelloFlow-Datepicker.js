@@ -390,8 +390,7 @@
         var currentDateYear = currentDateValue ? currentDateValue.getFullYear() : CONST.currentDate.getFullYear();
         var currentDateMonth = currentDateValue ? currentDateValue.getMonth() : CONST.currentDate.getMonth();
         var currentDate = new Date(currentDateYear, currentDateMonth, 1);
-        var isChrome = navigator.userAgent.includes("Chrome") && navigator.vendor.includes("Google Inc");
-        var defaultDatePicker = mixins.checkDatePicker(element) && !isChrome;
+        var defaultDatePicker = mixins.checkDatePicker(element);
         var isMobile = mixins.checkDatePicker(element) && mixins.mobileCheck();
         if (currentDateValue) {
             currentDateValue.setHours(12);

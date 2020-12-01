@@ -18,7 +18,8 @@ var self=this||{};try{!function(t,e){if(new t("q=%2B").get("q")!==e||new t({q:e}
                 }
                 break;
             case "date":
-                var date = new Date(value);
+                var parsedValue = +value ? +value : value;
+                var date = new Date(parsedValue);
                 if (date.valueOf()) {
                     date.setHours(12);
                     var newValue = date.toISOString().substring(0, 10);
